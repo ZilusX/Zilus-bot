@@ -1,0 +1,17 @@
+# 1. تحديد نظام بايثون المستقر والمخفف للسيرفرات
+FROM python:3.11-slim
+
+# 2. إنشاء مجلد العمل داخل السيرفر السحابي
+WORKDIR /code
+
+# 3. نسخ ملف المكتبات أولاً لتثبيتها
+COPY ./requirements.txt /code/requirements.txt
+
+# 4. تفعيل أمر تثبيت المكاتب تلقائياً بدون حفظ كاش لتقليل الحجم
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# 5. نسخ باقي ملفات البوت (مثل bot.py) إلى السيرفر
+COPY . .
+
+# 6. الأمر النهائي لتشغيل البوت بانتظام 24 ساعة
+CMD ["python", "bot.py"]
