@@ -10,7 +10,7 @@ GEMINI_API_KEY = "AIzaSyDQ5c2ukcgbBMwCvW9RPiNjuD1mligiB2o"
 # تهيئة البوت باستخدام المكتبة المستقرة
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
-# تهيئة عميل جيميني بالنظام الحديث المعتمد لعام 2026
+# تهيئة عميل جيميني بالنظام الحديث لعام 2026
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # إعداد التوجيه الخاص بالذكاء الاصطناعي (System Instruction)
@@ -50,7 +50,6 @@ def handle_my_business_messages(message):
         print(f"❌ خطأ أثناء معالجة الرسالة: {e}")
 
 if __name__ == "__main__":
-    print("🚀 البوت يعمل الآن ويراقب الحساب...")
+    print("🚀 البوت يعمل الآن على Hugging Face ويراقب الحساب...")
     # طلب تحديثات البيزنس بشكل صريح من خوادم تليجرام
     bot.infinity_polling(allowed_updates=["business_message", "business_connection", "message"])
-
